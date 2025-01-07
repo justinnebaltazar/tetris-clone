@@ -1,7 +1,13 @@
-import React from "react";
+import styles from "./Game.module.css";
+import { Menu } from "../Menu/Menu";
 
-export const Game = () => {
+export const Game = ({rows, columns}) => {
+    const start = () => {
+        console.log("game started")
+    }
     return (
-        <div>Press `{ key }` to start </div>
+       <div className={styles.game}>
+        <Menu onClick={start}></Menu>
+       </div>
     )
 }

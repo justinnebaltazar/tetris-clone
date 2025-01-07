@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10%;
+}
+
+.menuBtn {
+    padding: 30px 40px;
+    border-radius: 15px;
+    border: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 60px;
+}
+
