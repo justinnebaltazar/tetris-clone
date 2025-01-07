@@ -1,9 +1,13 @@
 import styles from "./Game.module.css";
 import { Menu } from "../Menu/Menu";
+import { useGameOver } from "../../hooks/useGameOver";
 
 export const Game = ({rows, columns}) => {
+    const [gameOver, setGameOver, resetGameOver] = useGameOver();
+
     const start = () => {
-        console.log("game started")
+        resetGameOver();
+        console.log(`Start gameOver is ${gameOver}`);
     }
     return (
        <div className={styles.game}>
