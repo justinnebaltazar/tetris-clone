@@ -81,7 +81,7 @@ export const rotate = ({ piece, direction }) => {
 
   return newPiece.reverse();
 };
-
+/* given a board, a shape, and a starting position -- transfer  */
 export const transferToBoard = ({
   className,
   isOccupied,
