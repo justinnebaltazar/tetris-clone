@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./GameController.module.css";
+import { Action, actionForKey } from "../../utils/Input";
 
 export const GameController = ({ board, gameStats, player, setGameOver, setPlayer }) => {
     const onKeyUp = ({ code }) => {
+        const action = actionForKey(code); 
 
-        if (code === "KeyQ") {
+        if (action == Action.Quit) {
             setGameOver(true);
         }
         console.log(`onKeyUp ${code}`);
