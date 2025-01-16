@@ -1,7 +1,5 @@
 import styles from "../components/Board/BoardCell.module.css";
 
-// since the css is in BoardCell.module.css how does this affect the classNames of the tetrominoes here 
-
 const className = "styles.tetromino";
 
 export const TETROMINOES = {
