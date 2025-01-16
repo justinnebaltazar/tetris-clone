@@ -10,7 +10,6 @@ export const GameController = ({ board, gameStats, player, setGameOver, setPlaye
         if (action == Action.Quit) {
             setGameOver(true);
         }
-        console.log(`onKeyUp ${code}`);
     }
 
     const onKeyDown = ({ code }) => {
