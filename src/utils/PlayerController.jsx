@@ -1,9 +1,10 @@
 import { Action } from "./Input";
 import { rotate } from "./Tetrominoes";
+import { hasCollision, isWithinBoard } from "./Board";
 
 const attemptRotation = ({ board, player, setPlayer }) => {
     const shape = rotate({
-        piece: player.tetromonino.shape, 
+        piece: player.tetromino.shape, 
         direction: 1
     });
 
@@ -13,8 +14,8 @@ const attemptRotation = ({ board, player, setPlayer }) => {
     if(isValidRotation) {
         setPlayer({
             ...player, 
-            tetromonino: {
-                ...player.tetromonino, 
+            tetromino: {
+                ...player.tetromino, 
                 shape
             }
         });
@@ -28,7 +29,7 @@ export const playerController = ({ action, board, player, setPlayer, setGameOver
         return;
     }
 
-    if (action === Action.rotate) {
-        attemptRotation({ board, player, setPlayer, setGameOver })
+    if (action === Action.Rotate) {
+        attemptRotation({ board, player, setPlayer })
     }
 }
