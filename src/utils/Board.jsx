@@ -27,6 +27,11 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
         shape: tetromino.shape
     });
 
+    // reset player to top of the board
+    if (player.collided || player.isFastDropping) {
+        resetPlayer();
+    }
+
     return {
         rows, 
         size: {...board.size}

@@ -62,7 +62,7 @@ const attemptMovement = ({ board, action, player, setPlayer, setGameOver }) => {
     } else if (action === Action.Left) {
         delta.column -= 1; 
     } else if (action === Action.Right) {
-        delta.row += 1;
+        delta.column += 1;
     }
 
     const { collided, nextPosition } = movePlayer({
