@@ -19,5 +19,3 @@ const GameStats = ({ gameStats }) => {
 }
 
 export default React.memo(GameStats);
-// Uncaught SyntaxError: The requested module '/src/components/GameStats/GameStats.jsx?t=1736290776866' does not provide an export named 'GameStats' (at Tetris.jsx:3:10)
-// does this error stem from `export default React.memo(GameStats);`
