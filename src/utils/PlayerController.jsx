@@ -24,6 +24,33 @@ const attemptRotation = ({ board, player, setPlayer }) => {
     }
 }
 
+export const movePlayer = ({delta, position, shape, board }) => {
+    const desiredNextPosition = {
+        row: position.row + delta.row,
+        column: position.column + delta.column
+    };
+
+    const collided = hasCollision({
+        board, 
+        position: desiredNextPosition, 
+        shape
+    });
+
+    const isOnBoard = isWithinBoard({
+        board, 
+        position: desiredNextPosition, 
+        shape
+    });
+
+    const preventMove = !isOnBoard || (isOnBoard && collided);
+    const nextPosition = preventMove ? position : desiredNextPosition;
+
+    const isMovingDown = delta.row > 0;
+    const isHit = isMovingDown && (collided || !isOnBoard);
+
+    return { collided: isHit, nextPosition};
+};
+
 const attemptMovement = ({ board, action, player, setPlayer, setGameOver }) => {
     const delta = { row: 0, column: 0};
     let isFastDropping = false;
@@ -43,6 +70,18 @@ const attemptMovement = ({ board, action, player, setPlayer, setGameOver }) => {
         position: player.position, 
         shape: player.tetromino.shape, 
         board
+    });
+
+    const isGameOver = collided && player.position.row === 0;
+    if (isGameOver) {
+        setGameOver(isGameOver);
+    }
+
+    setPlayer({
+        ...player,
+        collided, 
+        isFastDropping, 
+        position: nextPosition
     });
 };
 
