@@ -5,9 +5,9 @@
     display: grid;
     grid-gap: 2px; 
     width: 45vw;
-    height: 90vw;
-    background-color: rgb(32, 0, 64);
-    border: 10px solid rgb(32, 0, 64);
+    height: 80vw;
+    background-color: #474c52;
+    border: 10px solid #474c52;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding-right: 10px;
