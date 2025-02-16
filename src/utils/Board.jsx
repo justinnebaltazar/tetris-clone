@@ -1,5 +1,7 @@
 import { defaultCell } from "./Cell";
+import { movePlayer } from "./PlayerController";
 import { transferToBoard } from "./Tetrominoes";
+import styles from "../components/Board/BoardCell.module.css";
 
 export const buildBoard = ({ rows, columns }) => {
     const builtRows = Array.from({ length: rows }, () => 
@@ -12,6 +14,24 @@ export const buildBoard = ({ rows, columns }) => {
     };
 };
 
+const findDropPosition = ({ board, position, shape }) => {
+    let max = board.size.rows - position.row + 1; 
+    let row = 0;
+
+    for (let i = 0; i < max; i++) {
+        const delta = { row: i, column: 0 };
+        const result = movePlayer({ delta, position, shape, board });
+        const { collided } = result;
+
+        if (collided) {
+            break;
+        }
+    
+        row = position.row + i;
+    }
+    return {...position, row};
+}
+
 export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
     const { tetromino, position } = player;
 
@@ -19,10 +39,28 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
         row.map((cell) => (cell.occupied ? cell : { ...defaultCell }))
     );
 
+    const dropPosition = findDropPosition({
+        board, 
+        position, 
+        shape: tetromino.shape
+    });
+
+    // Apply ghost style only if not fast dropping
+    if (!player.isFastDropping) {
+        rows = transferToBoard({
+            className: `${styles.tetromino} ${styles.ghost}`, 
+            isOccupied: false, 
+            position: dropPosition, 
+            rows, 
+            shape: tetromino.shape
+        });
+    }
+
+    // applying the actual tetromino style
     rows = transferToBoard({
         className: tetromino.className, 
-        isOccupied: player.collided, 
-        position, 
+        isOccupied: player.collided || player.isFastDropping, 
+        position: player.isFastDropping ? dropPosition : position, 
         rows, 
         shape: tetromino.shape
     });
