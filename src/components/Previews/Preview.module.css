@@ -1,19 +1,23 @@
 .Preview {
-    position: absolute;
-    top: 0;
-    left: 72.2vw;
-    background: rgba(0, 0, 0, 0.1);
-    border: 10px solid rgba(0, 0, 0, 0);
-    border-radius: 10px;
-    margin-left: 20px;
-  }
+  position: absolute;
+  top: 20px;
+  left: min(72.2vw, 900px);
+  background: rgba(0, 0, 0, 0.1);
+  border: 10px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin-left: 20px;
+  max-width: 113px;
+  max-height: 113px;
+}
   
 .PreviewBoard {
-    display: grid;
-    grid-gap: 2px;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    width: 11vw;
-    height: 11vw;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  width: 9vw;
+  height: 9vw;
+  max-width: 113px;
+  max-height: 113px;
 }
   
