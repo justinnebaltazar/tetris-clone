@@ -65,6 +65,25 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
         shape: tetromino.shape
     });
 
+
+    // check for cleared lines
+    const blankRow = rows[0].map((_) => ({ ...defaultCell }))
+    let linesCleared = 0;
+
+    rows = rows.reduce((acc, row) => {
+        if (row.every((column) => column.occupied)) {
+            linesCleared++;
+            acc.unshift([...blankRow]);
+        } else {
+            acc.push(row);
+        }
+        return acc;
+    }, []);
+
+    if (linesCleared > 0) {
+        addLinesCleared(linesCleared);
+    }
+
     // reset player to top of the board
     if (player.collided || player.isFastDropping) {
         resetPlayer();
