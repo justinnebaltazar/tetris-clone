@@ -1,8 +1,21 @@
-# React + Vite
+# Tetris Clone 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Tetris clone built with **React, Vite, and CSS Modules**.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
+- **React**: Component based achitecture to manage UI and logic. 
+- **Vite**: Fast build tool and efficient local development experience.
+- **CSS Modules**: Scope styles locally to components, preventing global conflicts and making the codebase more maintainable.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- **Smooth Gameplay**: Classic Tetris mechanics with fast drops, piece preview, and rotation. 
+- **Score Tracking**: Keep track of your score as you clear lines and level up.
+
+## 📜 Controls
+| Key | Action |
+|-----|--------|
+| ←  | Move left |
+| →  | Move right |
+| ↓  | Soft drop |
+| Space | Fast drop |
+| ↑  | Rotate piece 
