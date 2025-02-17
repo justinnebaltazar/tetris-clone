@@ -25,3 +25,15 @@
     margin-bottom: 0.5em; 
     color: rgba(255, 255, 255, 1);
 }
+
+@media screen and (max-width: 845px) {
+    .GameStats {
+        top: 50vh;
+    }
+}
+
+@media screen and (max-width: 776px) {
+    .GameStats {
+        top: 45vh;
+    }
+}

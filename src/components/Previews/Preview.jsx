@@ -10,7 +10,7 @@ const Preview = ({ tetromino, index }) => {
   
     const board = buildBoard({ rows: 4, columns: 4 });
   
-    const style = { top: `${index * 150}px` };
+    const style = { top: `${index * 130}px` };
   
     board.rows = transferToBoard({
       className,
